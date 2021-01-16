@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:mysql://192.168.1.102:3306/ssm?serverTimeZone=UTC
+    username: root
+    password: ^abc123$
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.lisz.entity

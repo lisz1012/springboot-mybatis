@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lisz.mapper.UserDao">
+    <select id="getById" resultType="com.lisz.entity.User">
+        select * from user where id = #{id}
+    </select>
+    <select id="selecttAll" resultType="com.lisz.entity.User">
+        select * from user
+    </select>
+    <insert id="addUser" parameterType="com.lisz.entity.User">
+        insert into user (name, job, birth_date, profile, email, score, created_at, modified_at, version) values
+        (#{name}, #{job}, #{birthDate}, #{profile}, #{email}, #{score}, #{createdAt}, #{modifiedAt}, 0)
+    </insert>
+    <update id="updateUser" parameterType="com.lisz.entity.User">
+        update user
+        <set>
+            <if test="name != null">name=#{name},</if>
+            <if test="job != null">job=#{job},</if>
+            <if test="birthDate != null">birth_date=#{birthDate},</if>
+            <if test="profile != null">profile=#{profile},</if>
+            <if test="email != null">email=#{email},</if>
+            <if test="score != null">score=#{score},</if>
+            <if test="createdAt != null">create_at=#{createdAt},</if>
+            <if test="modifiedAt != null">modified_at=#{modifiedAt},</if>
+            version = version + 1
+        </set>
+        <!-- 这里并没有集成MyBatis Plus的乐观锁 -->
+        where id=#{id}
+    </update>
+    <delete id="deleteById" parameterType="int">
+        delete from user where id = #{id}
+    </delete>
+</mapper>
