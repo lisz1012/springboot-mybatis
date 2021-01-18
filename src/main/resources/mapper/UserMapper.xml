@@ -26,7 +26,7 @@
             <if test="modifiedAt != null">modified_at=#{modifiedAt},</if>
             version = version + 1
         </set>
-        <!-- 这里并没有集成MyBatis Plus的乐观锁 -->
+        <!-- 这里并没有集成MyBatis Plus的乐观锁, 因为需要其依赖作为支持 -->
         where id=#{id}
     </update>
     <delete id="deleteById" parameterType="int">
