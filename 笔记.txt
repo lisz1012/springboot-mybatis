@@ -1,0 +1,2 @@
+org.springframework.boot.context.config.ConfigDataEnvironment 中设置了配置文件的读取路径
+PropertiesPropertySourceLoader和YamlPropertySourceLoader分别读取了properties，xml和yml，yaml配置文件
