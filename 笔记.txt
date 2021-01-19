@@ -1,2 +1,12 @@
-org.springframework.boot.context.config.ConfigDataEnvironment 中设置了配置文件的读取路径
+org.springframework.boot.context.config.ConfigDataEnvironment 中设置了配置文件的读取路径:
+List<ConfigDataLocation> locations = new ArrayList<>();
+		locations.add(ConfigDataLocation.of("optional:classpath:/"));
+		locations.add(ConfigDataLocation.of("optional:classpath:/config/"));
+		locations.add(ConfigDataLocation.of("optional:file:./"));
+		locations.add(ConfigDataLocation.of("optional:file:./config/"));
+		locations.add(ConfigDataLocation.of("optional:file:./config/*/"));
+		DEFAULT_SEARCH_LOCATIONS = locations.toArray(new ConfigDataLocation[0]);
 PropertiesPropertySourceLoader和YamlPropertySourceLoader分别读取了properties，xml和yml，yaml配置文件
+
+ConfigDataEnvironment 323 遍历到一个 name是"Config resource 'class path resource [application.yml]' via location 'optional:classpath:/'"
+的propertySource的时候，会进入else里执行add，就会把application.yml的propertySource 加进environment.propertySources.
