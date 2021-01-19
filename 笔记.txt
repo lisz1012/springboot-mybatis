@@ -10,3 +10,6 @@ PropertiesPropertySourceLoader和YamlPropertySourceLoader分别读取了properti
 
 ConfigDataEnvironment 323 遍历到一个 name是"Config resource 'class path resource [application.yml]' via location 'optional:classpath:/'"
 的propertySource的时候，会进入else里执行add，就会把application.yml的propertySource 加进environment.propertySources.
+
+beanPostProcess.end(); initMessageSource(); initApplicationEventMulticaster(); ... finishRefresh();
+这些方法不详细看了，搜索spring context refresh 有一堆解释的文章
