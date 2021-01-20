@@ -1,5 +1,6 @@
 默认只有spring-boot 和 spring-boot-autoconfigure 中有 META-INF/spring.factories 文件，并将从中读取类名，通过反射的方式创建
-Factories和Listeners
+Factories和Listeners。而org.springframework.boot.context.event.EventPublishingRunListener这个重要的事件发生器类就在前者的
+META-INF/spring.factories 文件里面
 
 org.springframework.boot.context.config.ConfigDataEnvironment 中设置了配置文件的读取路径:
 List<ConfigDataLocation> locations = new ArrayList<>();
